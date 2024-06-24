@@ -1,0 +1,12 @@
+#Note! docker-compose.yml is the dev env by PHZ convention. See https://wiki.phz.fi/Course_DevEnv
+version: '3.5'
+services:
+
+  mta:
+    image: freinet/postfix-relay
+    env_file:
+     - .env.prod
+    volumes:
+     - ./data:/var/spool/postfix
+    ports:
+      - 2525:25
