@@ -2,7 +2,11 @@
 
 ## 1. Project Description
 
+Docker-compose project for running local postfix MTA to provide more reliable email transport than over internet. 
+
 ### 1.1. Business Vision
+
+You can send emails from all docker containers to localhost:2525 which then enqueues them to be sent forward. If there is connectivity issue, the local container persists the emails, unlike node.js/java/python/php.
 
 ### 1.2. Task Management
 
