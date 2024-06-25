@@ -1,0 +1,19 @@
+#!/bin/bash
+### BEGIN INIT INFO
+# Provides:          fw
+# Required-Start:    
+# Required-Stop:     
+# X-Start-After:     docker
+# X-Stop-After:      
+# Default-Start:     0 1 2
+# Default-Stop:      0 1 2
+# Short-Description: PHZ Firewall
+# Description:       Disable open relay to phz-docker-postfix
+#                    It's raw iptables so it's the most flexible firewall
+### END INIT INFO
+
+#phz-docker-postfix
+iptables -I FORWARD 1 -p tcp --dport 25 -s 127.0.0.0/8 -j ACCEPT
+iptables -I FORWARD 1 -p tcp --dport 25 -s 172.16.0.0/12 -j ACCEPT
+iptables -I FORWARD 1 -p tcp --dport 25 -j DROP
+iptables -I FORWARD 1 -p tcp --dport 587 -j DROP
