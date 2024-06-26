@@ -56,4 +56,4 @@ target/
 ### Database (for dev) ###
 data
 
-./env.prod
+.env.prod
