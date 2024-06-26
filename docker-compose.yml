@@ -4,6 +4,7 @@ services:
 
   mta:
     image: freinet/postfix-relay
+    restart: always
     env_file:
      - .env.prod
     volumes:
